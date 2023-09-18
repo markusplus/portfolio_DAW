@@ -15,8 +15,8 @@ Las funciones principales a destacar de GitHub son:
 1. Subir proyectos
 2. Herramienta de revisión de código
 3. Creación de ramas
-4. Clonar repositorios
-5. Descargar repositorios
+4. Descargar repositorios
+5. Clonar repositorios
 ### Subir proyectos
 ![](https://www.swiftbeta.com/content/images/2020/11/Screen-Shot-2020-11-13-at-10.15.08.png)
 En GitHub los usuarios pueden subir proyectos mediante la terminal o a través de la propia aplicación web.
