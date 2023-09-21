@@ -18,10 +18,10 @@
                 $result = $result . " $i ";
             }
             else if($i > 1 && $i < 10) {
-                $result = $result . " +$i ";
+                $result = $result . " + $i ";
             }
             else if($i == 10) {
-                $result = $result . " = " . $nums;
+                $result = $result . "+ $i = " . $nums;
             }
         }
         echo $result;
