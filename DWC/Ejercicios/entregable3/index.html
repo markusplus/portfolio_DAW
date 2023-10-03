@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregable 3</title>
+</head>
+<body>
+    <script>
+        var texto = " ¡APRENDE JAVASCRIPT PARA MEJORAR TUS HABILIDADES EN JAVASCRIPT! "
+        texto = texto.trim()
+        texto = texto.toLowerCase()
+        texto = texto.replaceAll("javascript", "JavaScript")
+        var posiciones = Array()
+        var index = 0
+        do {
+        posiciones.push(texto.indexOf("JavaScript"))
+        } while(texto.indexOf("JavaScript", posiciones[posiciones.length-1]))
+
+        console.log(texto)
+        console.log(posiciones)
+    </script>
+</body>
+</html>
