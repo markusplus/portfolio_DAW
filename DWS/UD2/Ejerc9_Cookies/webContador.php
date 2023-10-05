@@ -7,11 +7,12 @@
 </head>
 <body>
     <?php
-        if(isset($_GET['reset'])) {
-            setcookie("contador", 0);
+        if (isset($_GET["reset"])) {
+            setcookie("visitas", 0);
         }
-        setcookie("contador", $_COOKIE["cookie2"]);
-        echo $_COOKIE["contador"];
+        $cont = $_COOKIE["visitas"];
+        echo "Cookie: " . $_COOKIE["visitas"];
+        echo "<br>Contador: " . $cont + 1;
     ?>
     <a href="index.php"><h1>Página principal</h1><br></a>
     <form method="get">

@@ -1,6 +1,11 @@
-<?php 
-    $cookie = intval($_COOKIE["contador"]) + 1;
-    setcookie("cookie2", $cookie);
+<?php
+    if (isset($_COOKIE['visitas'])) {
+        $contador = $_COOKIE["visitas"] + 1;
+        setcookie("visitas", $contador);
+    }
+    else {
+        setcookie("visitas", 0);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +15,7 @@
     <title>Principal</title>
 </head>
 <body>
-    <a href="webContador.php"><h1>Visitar página</h1></a>
+    <a href="webContador.php"><h1>Accede a la web con el contador PHP</h1></a>
     
 </body>
 </html>
