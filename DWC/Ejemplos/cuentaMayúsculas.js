@@ -13,4 +13,5 @@ const contador = result.reduce((acum, el) => {
     return acum
 }, {})
 
+console.log(result)
 console.log(contador)
