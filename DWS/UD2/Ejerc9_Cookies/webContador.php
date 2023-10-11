@@ -11,7 +11,7 @@
             setcookie("visitas", 0);
         }
         $cont = $_COOKIE["visitas"];
-        echo "Cookie: " . $_COOKIE["visitas"];
+        echo "Cookie: " . intval($_COOKIE["visitas"]);
         echo "<br>Contador: " . $cont + 1;
     ?>
     <a href="index.php"><h1>Página principal</h1><br></a>
