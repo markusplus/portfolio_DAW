@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="800mm"
+   height="800mm"
+   viewBox="0 0 800 800"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="volkswagen.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.1917561"
+     inkscape:cx="1483.6555"
+     inkscape:cy="1514.9453"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer4" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="slice"
+       start_point="1634.072,1921.7563"
+       end_point="1645.47,165.81515"
+       center_point="1639.771,1043.7857"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       allow_transforms="true" />
+    <rect
+       x="818.74839"
+       y="594.5052"
+       width="1632.2818"
+       height="1569.7023"
+       id="rect3" />
+    <rect
+       x="818.74841"
+       y="594.50519"
+       width="1632.2819"
+       height="1569.7023"
+       id="rect3-5" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Exterior"
+     style="opacity:1;mix-blend-mode:normal">
+    <circle
+       style="opacity:1;mix-blend-mode:normal;fill:#002357;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.893318;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="400"
+       cy="400"
+       r="392.55838" />
+    <circle
+       style="opacity:1;mix-blend-mode:darken;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.907;stroke-dasharray:none;stroke-opacity:1"
+       id="path1-3"
+       cx="400"
+       cy="400"
+       r="398.76038" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Interior">
+    <circle
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#9e999c;stroke-width:31.1102;stroke-dasharray:none;stroke-opacity:1"
+       id="path2"
+       cx="400"
+       cy="400"
+       r="322.92975" />
+    <circle
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#2e2c2d;stroke-width:12.5349;stroke-dasharray:none;stroke-opacity:1"
+       id="path2-6"
+       cx="400"
+       cy="400"
+       r="301.35062" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.32389765,0,0,0.32389765,-129.2554,-165.56181)"
+       id="text3"
+       style="font-size:1186.67px;font-family:Insaniburger;-inkscape-font-specification:Insaniburger;text-align:center;white-space:pre;shape-inside:url(#rect3);fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#2e2c2d;stroke-width:46.526;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="1239.1398"
+         y="1663.4041"
+         id="tspan2"><tspan
+           style="font-weight:bold;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ffffff;stroke:none"
+           id="tspan1">V</tspan></tspan></text>
+    <path
+       style="font-weight:bold;font-size:1186.67px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;mix-blend-mode:normal;fill:#ffffff;stroke-width:12.7754"
+       d="M 324.57975,688.50746 153.04366,188.455 h 43.48318 l 140.48767,370.79638 38.46037,-177.62565 h 50.51511 L 462.87177,562.25 604.19072,188.455 h 42.76564 L 478.69857,692.64682 459.71325,631.93603 399.87139,446.89038 358.11033,590.54231 Z"
+       id="text3-7"
+       aria-label="W"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:label="W_sombra_larga" />
+    <path
+       style="font-weight:bold;font-size:1186.67px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;mix-blend-mode:normal;fill:#898989;fill-opacity:1;stroke-width:14.1635"
+       d="M 321.02439,718.86286 125.44785,188.455 h 53.44644 l 143.84649,370.79638 47.27276,-177.62565 h 62.08959 L 477.4356,562.25 620.60789,184.31563 h 52.56449 L 476.53749,716.10327 451.50614,640.21478 400,446.89038 348.67027,640.21478 Z"
+       id="text3-7-0"
+       aria-label="W"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:label="W_principal" />
+    <path
+       style="font-weight:bold;font-size:1186.67px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;mix-blend-mode:darken;fill:#ffffff;fill-opacity:1;stroke-width:14.1635"
+       d="M 321.02442,718.86286 125.44788,188.455 h 53.44644 l 143.84649,370.79638 47.27276,-177.62565 h 62.0896 L 477.43567,562.25 620.60797,184.31563 h 52.56437 l -196.63477,531.78764 -25.03139,-75.88849 -51.50614,-193.3244 -51.32973,193.3244 z"
+       id="text3-7-0-1"
+       aria-label="W"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:label="W_sombra_corta" />
+  </g>
+</svg>
