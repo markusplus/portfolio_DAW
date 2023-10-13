@@ -1,14 +1,26 @@
 function calculaPromedios(mapa) {
-    i = 0
-    let array = Array.from(mapa.keys())
-    result = array.map(function(obj) {
-       obj = [obj[0], ]
-    });
+    const result = new Map()
+    for (const[key, value] of mapa) {
+        result.set(key, promedio(value))
+    }
     return result
 }
 
 function promedio(array) {
-    array.foreach((number) => )
+    let result = 0
+    for(let i = 0; i < array.length; i++) {
+        result += array[i]    
+    }
+    return (result / array.length)
+}
+
+function calculaMediaClase(mapa) {
+    let result = 0
+    for (const[key, value] of mapa) {
+        result += value
+    }
+    return result / mapa.size
+
 }
 
 const calificaciones = new Map([
@@ -17,4 +29,5 @@ const calificaciones = new Map([
     ["Juan", [40, 50, 70]],
 ]);
 
-alert(calculaPromedios(calificaciones))
+const mapa = calculaPromedios(calificaciones)
+console.log("Nota media de la clase: " + calculaMediaClase(mapa))
