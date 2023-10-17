@@ -1,11 +1,11 @@
 <?php
 $color = $_COOKIE["color"];
 $nombre = $_COOKIE["nombre"];
-if(isset($_GET["submit_btn"])){
-    $color = $_GET["color_txt"];
-    //if(substr(strval($color), 0, 1) == "#" && strlen(substr(strval($color), 1)) == 6) {
-        setcookie("color", $color);
-    //} 
+if(isset($_COOKIE["error"])){
+    if($_COOKIE["error"] == 1) {
+        echo "<script language='javascript'> alert('Campos erróneos'); </script>";
+        setcookie("error", 0);
+    }
 }
 ?>
 <style type="text/css">

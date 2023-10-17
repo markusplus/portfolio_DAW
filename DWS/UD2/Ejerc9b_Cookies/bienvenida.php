@@ -1,7 +1,16 @@
 <?php
-$color = $_COOKIE["color"];
-$nombre = $_COOKIE["nombre"];
-echo $nombre;
+if(isset($_GET["nombre_txt"]) && isset($_GET["color_txt"])) {
+    $nombre = $_GET["nombre_txt"];
+    $color = $_GET["color_txt"];
+    if(substr(strval($color), 0, 1) == "#" && strlen(substr(strval($color), 1)) == 6) {
+        setcookie("nombre", $nombre);
+        setcookie("color", $color);
+    }
+    else {
+        header("Location:" . $_SERVER['HTTP_REFERER']);
+        setcookie("error", 1);
+    }
+}
 ?>
 <style type="text/css">
     body {
