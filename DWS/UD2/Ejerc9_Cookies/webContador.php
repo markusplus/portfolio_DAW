@@ -7,14 +7,22 @@
 </head>
 <body>
     <?php
-        if (isset($_GET["reset"])) {
+        if(isset($_COOKIE["visitas"])) {
+            $cont = $_COOKIE["visitas"];
+            if (isset($_GET["reset"])) {
+                setcookie("visitas", 0);
+                $cont = 0;
+            }
+            echo "Cookie: " . intval($_COOKIE["visitas"]);
+            $cont++;
+            echo "<br>Contador: " . $cont;
+            setcookie("visitas", $cont);
+        }
+        else {
             setcookie("visitas", 0);
         }
-        $cont = $_COOKIE["visitas"];
-        echo "Cookie: " . intval($_COOKIE["visitas"]);
-        echo "<br>Contador: " . $cont + 1;
     ?>
-    <a href="index.php"><h1>Página principal</h1><br></a>
+    <a href="index.html"><h1>Volver</h1><br></a>
     <form method="get">
         <input type="submit" name="reset" value="Reset"/>
     </form>
