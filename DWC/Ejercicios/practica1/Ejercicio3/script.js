@@ -11,13 +11,24 @@ function generarVariableAleatoria(cantidad) {
     return numeros
 }
 
+function calculaMedia(array) {
+    result = array.reduce((acum, el) => acum + el) / array.length
+    return result
+}
+
 function generaDistribucionNormal(array) {
-    const media = 0
-    const varianza = 1
-    const d = array.map((d) => (d - media) / varianza)
-    return d
+    const media = calculaMedia(array)
+    console.log(media)
+    const varianza = calculaVarianza(array)
+    console.log(varianza)
+    array = array.map((d) => (d - media) / varianza)
+    return array;
+}
+
+function calculaVarianza(array) {
+  return Math.sqrt((array.reduce((acum, el) => acum + (el - calculaMedia(array))**2)) / (array.length))
 }
 
 var randomVariable = generarVariableAleatoria(1000)
-document.getElementById("texto").innerHTML = randomVariable
-alert(d)
+console.log(randomVariable)
+console.log(generaDistribucionNormal(randomVariable))
