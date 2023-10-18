@@ -1,0 +1,85 @@
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock span {
+    margin: 0 10px;
+}
+
+.clock span:first-child::after,
+.clock span:last-child::before {
+    content: ':';
+    margin: 0 5px;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.date span {
+    margin: 0 10px;
+}
+
+.date span:first-child::after,
+.date span:last-child::before {
+    content: '/';
+    margin: 0 5px;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    font-weight: bold;
+    color: rgb(21, 21, 21);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    margin: 15px auto; /* Esto centrará horizontalmente el botón */
+    cursor: pointer;
+}
+
+body {
+    background-repeat: no-repeat;
+    background: linear-gradient(to bottom, #e5e5e7, #5a5b5bee);
+}
+
+h1 {
+    color: #000000;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+p {
+    color: #0a0a0a;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+ul li {
+    font-weight: bold;
+    color: #0a0a0a; /* You can set your preferred color */
+    margin-right: 5px;
+    font-size: 1.2rem;
+}

@@ -1,9 +1,17 @@
 function calculaProductoEscalar(vector1, vector2) {
-    return vector1[0] * vector2[0] + vector1[1] * vector2[1]
+    result = 0
+    for (let i = 0; i < vector1.length; i++) {
+        result += vector1[i] * vector2[i]
+    }
+    return result
 }
 
 function calculaMagnitud(vector) {
-    return Math.sqrt(vector[0]**2 + vector[1]**2)
+    result = 0
+    for (let i = 0; i < vector.length; i++) {
+        result += vector[i]**2
+    }
+    return Math.sqrt(result)
 }
 
 function calculaAnguloSeparacion(vector1, vector2) {
@@ -15,8 +23,7 @@ function convertirSexagesimal(rad) {
     return rad * 180 / Math.PI
 }
 
-vector1 = [4, 0]
-vector2 = [2, 1]
-console.log(calculaMagnitud(vector2))
+vector1 = [4, 0, 2]
+vector2 = [2, 1, 4]
 console.log(calculaAnguloSeparacion(vector1, vector2))
 console.log(convertirSexagesimal(calculaAnguloSeparacion(vector1, vector2)))
