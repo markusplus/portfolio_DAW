@@ -1,7 +1,4 @@
 <?php
-session_start();
-?>
-<?php
     function verificaTarjeta() {
         if(isset($_POST["Submit"])) {
             if(isset($_POST["numero"])) {
@@ -60,15 +57,19 @@ session_start();
             }
         }
     }
-    if(isset($_SESSION["1"])) {
-        if(verificaTarjeta() && verificaFecha() && $_SESSION["1"] == "logged") {
-            echo "Tarjeta correcta";
+    session_start();
+    if(isset($_SESSION["usuario"])) {
+        if($_SESSION["usuario"] ==1) {
+            if(verificaTarjeta() && verificaFecha()) {
+                echo "Tarjeta correcta";
+                session_write_close();
+            }
+            else {
+                echo "<script language='javascript'> alert('La tarjeta introducida es incorrecta'); </script>";
+            }
         }
         else {
-            echo "<script language='javascript'> alert('La tarjeta introducida es incorrecta'); </script>";
+            echo "<script language='javascript'> alert('Primero debe iniciar sesión'); </script>";
         }
-    }
-    else {
-        echo "<script language='javascript'> alert('Primero debe iniciar sesión'); </script>";
     }
 ?>

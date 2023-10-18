@@ -1,15 +1,11 @@
 <?php
-session_start();
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php
 	$vectorUsuarios = array("Usuario1"=>"U1","Usuario2"=>"U2","Usuario3"=>"U3");
-  $vectorContrasenas = array("Usuario1"=>"contra1","Usuario2"=>"contra2","Usuario3"=>"contra3");
+  //$vectorContrasenas = array("Usuario1"=>"contra1","Usuario2"=>"contra2","Usuario3"=>"contra3");
   $usuario = null;
   $contrasena = null;
   if(isset($_POST["Submit"])) {
       if(isset($_POST["nombre"]) && $_POST["nombre"] !== "") {
-        if(array_search($_POST["nombre"], $vectorUsuarios) !== false) {
+        if(isset($vectorUsuarios[$_POST["nombre"]]) && $vectorUsuarios[$_POST["nombre"]] !== null) {
           $usuario = $_POST["nombre"];
         }
         else {
@@ -20,16 +16,13 @@ session_start();
         echo "<script language='javascript'> alert('Debes introducir el nombre'); </script>";
       }
       if(isset($_POST["pwd"]) && $_POST["pwd"] !== "") {
-        if(array_search($_POST["pwd"], $vectorContrasenas) !== false) {
-          if(array_search($_POST["pwd"], $vectorContrasenas) == array_search($_POST["nombre"], $vectorUsuarios) && array_search($_POST["nombre"], $vectorUsuarios) !== null) {
-            $contrasena = $_POST["pwd"];
-            $_SESSION["1"]="logged";
-          }
-          else {
-            echo "<script language='javascript'> alert('Contraseña incorrecta'); </script>";
-          }
+        if(array_search($_POST["pwd"], $vectorUsuarios) == $_POST["nombre"]) {
+          $contrasena = $_POST["pwd"];
+          session_start();
+          $_SESSION["usuario"]=1;
         }
         else {
+          $_SESSION["usuario"]=0;
           echo "<script language='javascript'> alert('Contraseña incorrecta'); </script>";
         }
       }
@@ -38,6 +31,7 @@ session_start();
       }
     }
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
