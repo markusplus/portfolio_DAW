@@ -21,17 +21,15 @@
     <title>Resultados</title>
 </head>
 <body>
+    <p>Información de las personas que han contratado vuelos:</p>
     <?php 
-        $gestor = fopen("pasajeros.csv", "r");
         $lineas = file("pasajeros.csv");
         foreach ($lineas as $numero => $linea) {
             $numero_de_linea = $numero + 1;
             $palabras = explode(";", $linea);
             echo "<hr class='solid'>";
             for($i = 0; $i < count($palabras); $i++) {
-                if($numero > 0) {
-                    echo "<p>$palabras[$i]</p>";
-                }
+                echo "$palabras[$i]<br>";
             }
         }
     ?>

@@ -149,6 +149,7 @@
                     }
                     else {
                         echo "El nombre introducido no está en el formato correcto en el pasajero $i";
+                        echo "<script>document.getElementById(\$nombre$i).style.color='red'</script";
                         break;
                     }
                 }
