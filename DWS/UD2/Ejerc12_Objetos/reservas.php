@@ -76,7 +76,7 @@
     <title>Inicio</title>
 </head>
 <body>
-    <form name="form3" id="form3" method="get" action="informacion.php" style="visibility:hidden">
+    <form name="form3" id="form3" method="get" action="informacion.php" style="display:none">
         <label id="texto_success"></label><br><br>
         <input type="submit" value="Mostrar datos reserva" name="mostrar_btn">
     </form>
@@ -109,7 +109,7 @@
                                                     array_push($pasajeros, $aux);
                                                     if($i == $numPasajeros - 1) {
                                                         echo "<script>document.getElementById('texto_success').innerHTML = 'Las reservas han sido realizadas para los pasajeros indicados'</script>";
-                                                        echo "<script>document.getElementById('form3').style.visibility = 'visible'</script>";
+                                                        echo "<script>document.getElementById('form3').style.display = 'block'</script>";
                                                         session_start();
                                                         $_SESSION["pasajeros"]=$pasajeros;
                                                     }
@@ -129,7 +129,7 @@
                                             array_push($pasajeros, $aux);
                                             if($i == $numPasajeros - 1) {
                                                 echo "<script>document.getElementById('texto_success').innerHTML = 'Las reservas han sido realizadas para los pasajeros indicados'</script>";
-                                                echo "<script>document.getElementById('form3').style.visibility = 'visible'</script>";
+                                                echo "<script>document.getElementById('form3').style.display = 'block'</script>";
                                                 session_start();
                                                 $_SESSION["pasajeros"]=$pasajeros;
                                             }
