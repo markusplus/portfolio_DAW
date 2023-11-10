@@ -25,7 +25,7 @@
         }
     }
     function compruebaNombre($nombre) {
-        if(ctype_upper($nombre[0]) && ctype_lower(substr($nombre, 1))) {
+        if($nombre != null && ctype_upper($nombre[0]) && ctype_lower(substr($nombre, 1)) && !is_null($nombre)) {
             return true;
         }
         else {
@@ -33,17 +33,17 @@
         }
     }
     function compruebaApellidos($apellidos) {
-        if($apellidos[strpos($apellidos, " ")+2] != null) {
-            if((ctype_upper($apellidos[0]) && ctype_lower(substr($apellidos, 1, strpos($apellidos, " ")-1))) && (ctype_upper($apellidos[strpos($apellidos, " ")+1]) && ctype_lower(substr($apellidos, strpos($apellidos, " ")+2)))) {
-                return true;
+            if($apellidos != null && $apellidos[strpos($apellidos, " ")+2] != null) {
+                if((ctype_upper($apellidos[0]) && ctype_lower(substr($apellidos, 1, strpos($apellidos, " ")-1))) && (ctype_upper($apellidos[strpos($apellidos, " ")+1]) && ctype_lower(substr($apellidos, strpos($apellidos, " ")+2)))) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-            else {
-                return false;
-            }
-        }
     }
     function compruebaEdad($edad) {
-        if($edad > 0 && $edad < 150) {
+        if($edad != null && $edad > 0 && $edad < 150 && !is_null($edad)) {
             return true;
         }
         else {

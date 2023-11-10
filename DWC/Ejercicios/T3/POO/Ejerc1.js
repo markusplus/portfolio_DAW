@@ -11,7 +11,6 @@ class Rectangulo {
     }
     fitsIn(rect) {
         return this.#calcularArea() <= rect.obtenerArea()?true:false;
-          
     }
     obtenerArea() {
         return this.#calcularArea();

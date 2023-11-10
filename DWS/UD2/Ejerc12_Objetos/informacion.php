@@ -32,6 +32,7 @@
                 echo "$palabras[$i]<br>";
             }
         }
+        //Crea un botón con un enlace a index.php
     ?>
     <br>
     <a href="index.php">
