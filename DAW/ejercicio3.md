@@ -8,9 +8,15 @@ sudo cp 000-default.conf marc_jovani.conf
 sudo nano marc_jovani.conf
 ```
 ![Captura ejercicio 3](captura3.png)
+
 Ahora modificamos el archivo hosts:
 ```sudo nano /etc/hosts```
 ![Captura ejercicio 3](captura4.png)
+
 En este momento trasladamos el archivo que acabamos de crear a la ruta: /var/www/marc_jovani:
 ```sudo mv /home/usuario/Escritorio/index.html /var/www/marc_jovani```
-Una vez hecho esto probamos en el navegador que el host funciona.
+y lo habilitamos en línea de comandos:
+![Captura ejercicio 3](captura5.png)
+
+Una vez hecho esto probamos en el navegador que el host funciona:
+![Captura ejercicio 3](captura6.png)
