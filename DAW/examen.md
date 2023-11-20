@@ -19,7 +19,7 @@ whoami >> MarcJovani.txt
 
 Ahora concatenamos al final del archivo el resultado del comando "who"
 ```who >> MarcJovani.txt```
-![Captura ejercicio 2](captura2.png)
+![Captura ejercicio 2](caprura2.png)
 
 ### Tercer ejercicio
 Primero comprobamos que apache se esté ejecutando con el comando:
