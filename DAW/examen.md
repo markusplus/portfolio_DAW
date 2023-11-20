@@ -1,7 +1,7 @@
 # Examen DAW
 ### Segundo ejercicio
 Documenta todos los pasos realizados en un archivo MarkDown. Accede a esta máquina remota mediante ssh:
-![Tux, the Linux mascot](/assets/images/tux.png)
+![Captura ejercicio 2](captura0.png)
 Deberás ir al escritorio y crear un archivo de texto que contenga como nombre de archivo, tu nombre propio y apellido sin espacios y con extensión txt (por ejemplo ArnoldSchwarzenegger.txt) escribe en su interior el resultado de whoami.
 
 Después, mediante otro comando, concatena al final del archivo el resultado del comando necesario para saber quién está conectado a la máquina mediante ssh.
