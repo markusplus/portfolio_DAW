@@ -10,4 +10,4 @@ const countWords = (text) => {
     }
     return wordCount;
 }
-console.log(countWords("sescagat petat torcat"));
+console.log(countWords("hola cómo va"));
