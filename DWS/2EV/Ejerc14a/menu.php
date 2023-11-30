@@ -32,7 +32,14 @@
 <body>
     <?php
         $inicio_sesion = verificarInicio($con);
-        if($inicio_sesion == 1 || $inicio_sesion == 0) {
+        if($inicio_sesion == 1) {
+            echo "<h1>Bienvenido/a " . $_SESSION["usuario"] . ". Seleccione la opción deseada.</h1>";
+            echo '<form action="usuarios.php" method="POST">';
+            echo '<input type="submit" value="crear" name="crear_btn">';
+            echo '<input type="submit" value="mostrar" name="mostrar_btn">';
+            echo '<input type="submit" value="eliminar" name="eliminar_btn">';
+            echo '</form>';
+        } else if($inicio_sesion == 0) {
             echo "<h1>Bienvenido/a " . $_SESSION["usuario"] . ". Seleccione la opción deseada.</h1>";
         } else {
             echo "<h1>Usuario o contraseña incorrectos</h1>";
