@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="red">Red:</label>
+        <input type="range" id="red" min="0" max="255" value="0">
+        <label for="green">Green:</label>
+        <input type="range" id="green" min="0" max="255" value="0">
+        <label for="blue">Blue:</label>
+        <input type="range" id="blue" min="0" max="255" value="0">
+        <label for="thickness">Thickness:</label>
+        <input type="range" id="thickness" min="10" max="100" value="5">
+        <button id="clearButton">Clear</button>
+        <label for="sequentialHSL">Sequential HSL:</label>
+        <input type="checkbox" id="sequentialHSL">
+    </div>
+    <div style="position: relative;">
+        <canvas id="myCanvas" width="1000" height="700" style="position: absolute; left:0; top:0; z-index:0; border:1px solid #d3d3d3;"></canvas>
+    </div>
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const context = canvas.getContext("2d");
+        let isPainting = false;
+        let sequentialHSL = false;
+
+        canvas.addEventListener("mousedown", startPainting);
+        canvas.addEventListener("mouseup", stopPainting);
+        canvas.addEventListener("mousemove", paint);
+
+        document.getElementById("clearButton").addEventListener("click", clearCanvas);
+        document.getElementById("sequentialHSL").addEventListener("change", toggleSequentialHSL);
+
+        function startPainting(event) {
+            isPainting = true;
+            paint(event); // Paint on mousedown as well
+        }
+
+        function stopPainting() {
+            isPainting = false;
+        }
+
+        function paint(event) {
+            if (!isPainting) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const red = document.getElementById("red").value;
+            const green = document.getElementById("green").value;
+            const blue = document.getElementById("blue").value;
+            const thickness = document.getElementById("thickness").value;
+
+            context.beginPath();
+            context.arc(x, y, thickness, 0, Math.PI * 2, false);
+
+            if (sequentialHSL) {
+                const hue = (x / canvas.width) * 360;
+                const saturation = (y / canvas.height) * 100;
+                const lightness = 50;
+                context.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            } else {
+                context.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+            }
+
+            context.fill();
+        }
+
+        function clearCanvas() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function toggleSequentialHSL() {
+            sequentialHSL = !sequentialHSL;
+        }
+    </script>
+</body>
+</html>
