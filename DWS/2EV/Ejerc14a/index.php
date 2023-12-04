@@ -11,7 +11,7 @@
         <label>Usuario: </label>
         <input type="text" name="usuario_txt" placeholder="Mar"><br><br>
         <label>Contraseña: </label>
-        <input type="text" name="contrasena_psw" placeholder="mar">
+        <input type="password" name="contrasena_psw" placeholder="mar">
         <input type="submit" name="submit_btn" value="Login">
     </form>
 </body>
