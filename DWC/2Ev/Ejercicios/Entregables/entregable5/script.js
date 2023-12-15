@@ -25,9 +25,11 @@ const rellenaTabla = (columnas, valores) => {
   document.body.appendChild(table);
 }
 
-function capitalizar(palabra) {
-  return palabra.replace("-", (match) => match.charAt(1).toUpperCase());
-}
+const capitalizar = (str) => {
+  return str.replace(/....-(.)/g, (match, char) => {
+    return char.toUpperCase();
+  });
+};
 
 var Dataframe = dfjs.DataFrame;
 promesa = Dataframe.fromCSV(
@@ -35,43 +37,43 @@ promesa = Dataframe.fromCSV(
 )
   .then((df) => {
     var df2 = df
-      .cast("SepalLength", parseFloat)
-      .cast("SepalWidth", parseFloat)
-      .cast("PetalLength", parseFloat)
-      .cast("PetalWidth", parseFloat)
-      .cast("Name", String);
+      .cast("SepalLength", parseFloat).rename("SepalLength", "Sepal.Length")
+      .cast("SepalWidth", parseFloat).rename("SepalWidth", "Sepal.Width")
+      .cast("PetalLength", parseFloat).rename("PetalLength", "Petal.Length")
+      .cast("PetalWidth", parseFloat).rename("PetalWidth", "Petal.Width")
+      .rename("Name", "Species");
 
-    df4 = df2.map(row => { row.set("Name", capitalizar(row.get("Name")));})
+    df2 = df2.withColumn("Species", (row) => capitalizar(row.get("Species")));
 
     const mediaSepalLength = df2
-      .groupBy("Name")
+      .groupBy("Species")
       .aggregate(
-        (group) => (Math.round(group.stat.mean("SepalLength") * 100) / 100)
+        (group) => (Math.round(group.stat.mean("Sepal.Length") * 100) / 100)
       )
-      .rename("aggregation", "meanSLength");
+      .rename("aggregation", "mean SLength");
     const mediaSepalWidth = df2
-      .groupBy("Name")
+      .groupBy("Species")
       .aggregate(
-        (group) => (Math.round(group.stat.mean("SepalWidth") * 100) / 100)
+        (group) => (Math.round(group.stat.mean("Sepal.Width") * 100) / 100)
       )
       .rename("aggregation", "meanSWidth");
     const mediaPetalLength = df2
-      .groupBy("Name")
+      .groupBy("Species")
       .aggregate(
-        (group) => (Math.round(group.stat.mean("PetalLength")* 100)/ 100)
+        (group) => (Math.round(group.stat.mean("Petal.Length")* 100)/ 100)
       )
       .rename("aggregation", "meanPLength");
     const mediaPetalWidth = df2
-      .groupBy("Name")
+      .groupBy("Species")
       .aggregate(
-        (group) => (Math.round(group.stat.mean("PetalWidth")*100)/ 100)
+        (group) => (Math.round(group.stat.mean("Petal.Width")*100)/ 100)
       )
       .rename("aggregation", "meanPWidth");
 
     const df3 = mediaSepalLength
-      .join(mediaSepalWidth, "Name")
-      .join(mediaPetalLength, "Name")
-      .join(mediaPetalWidth, "Name");
+      .join(mediaSepalWidth, "Species")
+      .join(mediaPetalLength, "Species")
+      .join(mediaPetalWidth, "Species");
 
     var columnas = df3.listColumns();
     var valores = df3.toArray();
@@ -83,19 +85,19 @@ promesa = Dataframe.fromCSV(
       div.id = "myDiv";
       var datos = [
         {
-            y: df.filter(row => row.get("Name") == "Iris-setosa")
+            y: df.filter(row => row.get("Species") == "Setosa")
                   .select(col).toArray().flat(),
             type: "box",
             name: "Setosa"
         },
         {
-            y: df.filter(row => row.get("Name") == "Iris-versicolor")
+            y: df.filter(row => row.get("Species") == "Versicolor")
                     .select(col).toArray().flat(),
               type: "box",
               name: "Versicolor"
         },
         {
-            y: df.filter(row => row.get("Name") == "Iris-virginica")
+            y: df.filter(row => row.get("Species") == "Virginica")
                     .select(col).toArray().flat(),
               type: "box",
               name: "Virginica"
@@ -115,10 +117,10 @@ promesa = Dataframe.fromCSV(
       document.body.appendChild(div);
     }
 
-    plot_data(df2, "SepalLength");
-    plot_data(df2, "SepalWidth");
-    plot_data(df2, "PetalLength");
-    plot_data(df2, "PetalWidth");
+    plot_data(df2, "Sepal.Length");
+    plot_data(df2, "Sepal.Width");
+    plot_data(df2, "Petal.Length");
+    plot_data(df2, "Petal.Width");
     
   }).catch((err) => {
     console.log(err);
