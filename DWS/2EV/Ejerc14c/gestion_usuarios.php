@@ -18,7 +18,7 @@
             echo "<h1>Usuario $nombre creado correctamente</h1>";
             echo "<form action='menu.php' method='POST'>";
             echo "</form>";
-            echo "<button onclick='window.location.href=\"usuarios.php\"'>Volver</button>";
+            echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
         } else if(isset($_POST["eliminar_btn"])) {
             $usuario = $_POST["usuario_slc"];
             $con = mysqli_connect("localhost", "root", "", "discografia");
@@ -27,9 +27,8 @@
             mysqli_query($con, "DELETE FROM usuarios WHERE nombre='$usuario'");
             echo "<h1>Usuario con código " . $cod['codigo'] . " eliminado correctamente</h1>";
             echo "<form action='menu.php' method='POST'>";
-            echo "<input type='submit' value='Volver' name='volver_btn'>";
             echo "</form>";
-            echo "<button onclick='window.location.href=\"artistas.php\"'>Volver</button>";
+            echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
             mysqli_close($con);
         }
     ?>

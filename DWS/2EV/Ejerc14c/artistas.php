@@ -39,7 +39,7 @@
         $con = mysqli_connect("localhost", "root", "", "discografia");
         $artistas = mysqli_query($con, "SELECT * FROM artistas");
         echo "<form action='gestion_artistas.php' method='POST'>";
-        echo "<select name='artista_slc' id='artista_slc'>";
+        echo "<select name='artista_slc_eliminar' id='artista_slc_eliminar'>";
         while($fila = mysqli_fetch_array($artistas, MYSQLI_ASSOC)) {
             echo "<option value='" . $fila["nombre"] . "'>" . $fila["nombre"] . "</option>";
         }
@@ -54,7 +54,7 @@
         $con = mysqli_connect("localhost", "root", "", "discografia");
         $artistas = mysqli_query($con, "SELECT * FROM artistas");
         echo "<form action='gestion_artistas.php' method='POST'>";
-        echo "<select name='artista_slc_mostrar' id='artista_slc'>";
+        echo "<select name='artista_slc_modificar' id='artista_slc'>";
         while($fila = mysqli_fetch_array($artistas, MYSQLI_ASSOC)) {
             echo "<option value='" . $fila["nombre"] . "'>" . $fila["nombre"] . "</option>";
         }

@@ -87,10 +87,10 @@
             echo '<input type="submit" value="modificar" name="art_modificar_btn">';
             echo '<input type="submit" value="eliminar" name="art_eliminar_btn"><br><br>';
             echo '</form>';
-
             echo '<button onclick="cerrar_sesion()">Cerrar sesión</button>';
         } else if($inicio_sesion == 0) {
             echo "<h1>Bienvenido/a " . $_SESSION["usuario"];
+            echo '<button onclick="cerrar_sesion()">Cerrar sesión</button>';
         } else {
             echo "<h1>Usuario o contraseña incorrectos</h1>";
         }
