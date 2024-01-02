@@ -1,5 +1,6 @@
 <?php 
-    $con = mysqli_connect("localhost", "root", "", "discografia");
+    include("conexiones.php");
+    $con = conectar();
     function verificarInicio($con) {
         session_start();
         if(isset($_POST["usuario_txt"]) && isset($_POST["contrasena_psw"])) {
@@ -44,7 +45,7 @@
     } 
 
     function encriptaConstrasenaPrimerUsuario() {
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $stmt = mysqli_prepare($con, "SELECT pwd FROM usuarios WHERE codigo=1");
         mysqli_stmt_execute($stmt);
         $psw = mysqli_stmt_get_result($stmt);

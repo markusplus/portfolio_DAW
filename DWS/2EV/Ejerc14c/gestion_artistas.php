@@ -7,10 +7,11 @@
 </head>
 <body>
     <?php
+        include("conexiones.php");
         if(isset($_POST["artista_slc"])) {
             $artista = $_POST["artista_slc"];
             if($artista != "todos") {
-                $con = mysqli_connect("localhost", "root", "", "discografia");
+                $con = conectar();
                 $query = mysqli_query($con, "SELECT artistas.nombre, biografia, artistas.nacionalidad, instrumento, artistas.website, grupos.nombre, discos.titulo 
                                                 FROM artistas 
                                                 LEFT JOIN integrantes ON artistas.idartista = integrantes.idartista 
@@ -29,7 +30,7 @@
                 echo "<p><b>Disco:</b> $artistas[6]</p>";
             }
             else {
-                $con = mysqli_connect("localhost", "root", "", "discografia");
+                $con = conectar();
                 $query = mysqli_query($con, "SELECT artistas.nombre, biografia, artistas.nacionalidad, instrumento, artistas.website, grupos.nombre, discos.titulo 
                                                 FROM artistas 
                                                 LEFT JOIN integrantes ON artistas.idartista = integrantes.idartista 
@@ -55,7 +56,7 @@
             echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
         } else if(isset($_POST["artista_slc_modificar"])) {
             $artista = $_POST["artista_slc_modificar"];
-            $con = mysqli_connect("localhost", "root", "", "discografia");
+            $con = conectar();
             $query = mysqli_prepare($con, "SELECT * FROM artistas WHERE nombre = ?");
             mysqli_stmt_bind_param($query, "s", $artista);
             mysqli_stmt_execute($query);
@@ -79,7 +80,7 @@
             echo "</form>";
             echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
         } else if(isset($_POST["artista_slc_eliminar"])) {
-            $con = mysqli_connect("localhost", "root", "", "discografia");
+            $con = conectar();
             $stmt = mysqli_prepare($con, "DELETE FROM artistas WHERE nombre = ?");
             mysqli_stmt_bind_param($stmt, "s", $_POST["artista_slc_eliminar"]);
             if (mysqli_stmt_execute($stmt)) {
@@ -90,7 +91,7 @@
             mysqli_close($con);
             echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
         } else if(isset($_POST["aceptar_btn"])) {
-            $con = mysqli_connect("localhost", "root", "", "discografia");
+            $con = conectar();
             $stmt = mysqli_prepare($con, "INSERT INTO artistas (nombre, biografia, nacionalidad, instrumento, website) VALUES (?, ?, ?, ?, ?)");
             mysqli_stmt_bind_param($stmt, "sssss", $_POST["nombre_txt"], $_POST["biografia_txt"], $_POST["nacionalidad_txt"], $_POST["instrumento_txt"], $_POST["website_txt"]);
             mysqli_stmt_execute($stmt);

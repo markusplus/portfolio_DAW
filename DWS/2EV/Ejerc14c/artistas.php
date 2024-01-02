@@ -1,4 +1,5 @@
 <?php
+    include("conexiones.php");
     if(isset($_POST["art_crear_btn"])) {
         session_start();
         echo "<h1>" . $_SESSION["usuario"] .", introduce la información del artista:</h1>";
@@ -22,7 +23,7 @@
         echo "<h1>" . $_SESSION["usuario"] .", selecciona el artista del que deseas obtener información:</h1>";
         echo "<form action='gestion_artistas.php' method='POST'>";
         echo "<select name='artista_slc' id='artista_slc'>";
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $artistas = mysqli_query($con, "SELECT * FROM artistas");
         while($fila = mysqli_fetch_array($artistas, MYSQLI_ASSOC)) {
             echo "<option value='" . $fila["nombre"] . "'>" . $fila["nombre"] . "</option>";
@@ -36,7 +37,7 @@
     } else if(isset($_POST["art_eliminar_btn"])) {
         session_start();
         echo "<h1>" . $_SESSION["usuario"] .", selecciona el artista que deseas eliminar:</h1>";
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $artistas = mysqli_query($con, "SELECT * FROM artistas");
         echo "<form action='gestion_artistas.php' method='POST'>";
         echo "<select name='artista_slc_eliminar' id='artista_slc_eliminar'>";
@@ -51,7 +52,7 @@
     } else if(isset($_POST["art_modificar_btn"])) {
         session_start();
         echo "<h1>" . $_SESSION["usuario"] .", selecciona el artista que deseas modificar:</h1>";
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $artistas = mysqli_query($con, "SELECT * FROM artistas");
         echo "<form action='gestion_artistas.php' method='POST'>";
         echo "<select name='artista_slc_modificar' id='artista_slc'>";

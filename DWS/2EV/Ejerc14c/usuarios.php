@@ -1,4 +1,5 @@
 <?php
+    include("conexiones.php");
     if(isset($_POST["usr_crear_btn"])) {
         session_start();
         echo "<h1>" . $_SESSION["usuario"] .", introduce la información del usuario:</h1>";
@@ -18,7 +19,7 @@
     } else if(isset($_POST["usr_mostrar_btn"])) {
         session_start();
         echo "<h1>" . $_SESSION["usuario"] .", estos son los usuarios registrados:</h1>";
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $usuarios = mysqli_query($con, "SELECT * FROM usuarios");
         echo "<table border='1'>";
         while($fila = mysqli_fetch_array($usuarios, MYSQLI_ASSOC)) {
@@ -31,7 +32,7 @@
         mysqli_close($con);
     } else if(isset($_POST["usr_eliminar_btn"])) {
         echo "<h1>Selecciona el nombre del usuario que quieres eliminar:</h1>";
-        $con = mysqli_connect("localhost", "root", "", "discografia");
+        $con = conectar();
         $usuarios = mysqli_query($con, "SELECT * FROM usuarios");
         echo "<form action='gestion_usuarios.php' method='POST'>";
         echo "<select name='usuario_slc' id='usuario_slc'>";
