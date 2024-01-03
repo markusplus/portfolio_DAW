@@ -18,6 +18,13 @@
                                                 LEFT JOIN grupos ON integrantes.idgrupo = grupos.idgrupo 
                                                 LEFT JOIN discos ON discos.idgrupo = grupos.idgrupo 
                                                 WHERE artistas.nombre = '$artista'");
+                $query2 = mysqli_query($con, "SELECT DISTINCT d.titulo
+                FROM artistas a 
+                INNER JOIN integrantes i ON a.idartista = i.idartista 
+                INNER JOIN grupos g ON g.idgrupo = i.idgrupo 
+                INNER JOIN discos d ON i.idgrupo = d.idgrupo
+                WHERE a.nombre = '$artista'");
+                $result = "";
                 $artistas = mysqli_fetch_array($query, MYSQLI_NUM);
                 mysqli_close($con);
                 echo "<h1>Información del artista</h1>";
@@ -27,7 +34,11 @@
                 echo "<p><b>Instrumento:</b> $artistas[3]</p>";
                 echo "<p><b>Website:</b> $artistas[4]</p>";
                 echo "<p><b>Grupo:</b> $artistas[5]</p>";
-                echo "<p><b>Disco:</b> $artistas[6]</p>";
+                while($discos = mysqli_fetch_array($query2, MYSQLI_NUM)) {
+                    $result .= $discos[0].", ";
+                }
+                $result = rtrim($result, ", ");
+                echo "<p><b>Discos:</b> ".$result."</p>";
             }
             else {
                 $con = conectar();
@@ -54,7 +65,7 @@
                         $result .= $discos[0].", ";
                     }
                     $result = rtrim($result, ", ");
-                    echo "<p><b>Discos:</b>".$result."</p>";
+                    echo "<p><b>Discos:</b> ".$result."</p>";
                     echo "<hr>";
                 }
                 mysqli_close($con);
