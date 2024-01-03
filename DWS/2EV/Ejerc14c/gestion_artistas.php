@@ -31,27 +31,33 @@
             }
             else {
                 $con = conectar();
-                $query = mysqli_query($con, "SELECT artistas.nombre, biografia, artistas.nacionalidad, instrumento, artistas.website, grupos.nombre, discos.titulo 
+                $query = mysqli_query($con, "SELECT DISTINCT artistas.nombre, biografia, artistas.nacionalidad, instrumento, artistas.website, grupos.nombre 
                                                 FROM artistas 
                                                 LEFT JOIN integrantes ON artistas.idartista = integrantes.idartista 
-                                                LEFT JOIN grupos ON integrantes.idgrupo = grupos.idgrupo 
-                                                LEFT JOIN discos ON discos.idgrupo = grupos.idgrupo");
-                mysqli_close($con);
+                                                LEFT JOIN grupos ON integrantes.idgrupo = grupos.idgrupo");
                 echo "<h1>Información de los artistas</h1>";
-                $nombres = array();
-                $discos = array();
                 while($artistas = mysqli_fetch_array($query, MYSQLI_NUM)) {
-                    array_push($nombres, $artistas[0]);
-                    array_push($discos, $artistas[6]);
+                    $result = "";
                     echo "<p><b>Nombre:</b> $artistas[0]</p>";
                     echo "<p><b>Biografía:</b> $artistas[1]</p>";
                     echo "<p><b>Nacionalidad:</b> $artistas[2]</p>";
                     echo "<p><b>Instrumento:</b> $artistas[3]</p>";
                     echo "<p><b>Website:</b> $artistas[4]</p>";
                     echo "<p><b>Grupo:</b> $artistas[5]</p>";
-                    echo "<p><b>Discos:</b>".$discos[count($discos)-1]."</p>";
+                    $query2 = mysqli_query($con, "SELECT DISTINCT d.titulo
+                                                FROM artistas a 
+                                                INNER JOIN integrantes i ON a.idartista = i.idartista 
+                                                INNER JOIN grupos g ON g.idgrupo = i.idgrupo 
+                                                INNER JOIN discos d ON i.idgrupo = d.idgrupo
+                                                WHERE a.nombre = '$artistas[0]'");
+                    while($discos = mysqli_fetch_array($query2, MYSQLI_NUM)) {
+                        $result .= $discos[0].", ";
+                    }
+                    $result = rtrim($result, ", ");
+                    echo "<p><b>Discos:</b>".$result."</p>";
                     echo "<hr>";
                 }
+                mysqli_close($con);
             }
             echo "<button onclick='window.location.href=\"menu.php\"'>Volver</button>";
         } else if(isset($_POST["artista_slc_modificar"])) {
