@@ -74,13 +74,14 @@
         $inicio_sesion = verificarInicio($con);
         if($inicio_sesion == 1) {
             echo "<h1>Bienvenido/a " . $_SESSION["usuario"] . ". Seleccione la opción deseada.</h1>";
+            //Usuarios
             echo '<form action="usuarios.php" method="POST">';
             echo '<label><strong>Usuarios: </strong></label>';
             echo '<input type="submit" value="crear" name="usr_crear_btn">';
             echo '<input type="submit" value="mostrar" name="usr_mostrar_btn">';
             echo '<input type="submit" value="eliminar" name="usr_eliminar_btn"><br><br>';
             echo '</form>';
-
+            //Artistas
             echo '<form action="artistas.php" method="POST">';
             echo '<label><strong>Artistas: </strong></label>';
             echo '<input type="submit" value="crear" name="art_crear_btn">';
@@ -88,6 +89,12 @@
             echo '<input type="submit" value="modificar" name="art_modificar_btn">';
             echo '<input type="submit" value="eliminar" name="art_eliminar_btn"><br><br>';
             echo '</form>';
+            //Discos
+            echo '<form action="discos.php" method="POST">';
+            echo '<label><strong>Discos: </strong></label>';
+            echo '<input type="submit" value="crear" name="dis_crear_btn">';
+            echo '<input type="submit" value="mostrar" name="dis_mostrar_btn">';
+            echo '<input type="submit" value="modificar" name="dis_modificar_btn"><br><br>';
             echo '<button onclick="cerrar_sesion()">Cerrar sesión</button>';
         } else if($inicio_sesion == 0) {
             echo "<h1>Bienvenido/a " . $_SESSION["usuario"];
