@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('libros', function (Blueprint $table) {
-            $table->id();
-            $table->string('titulo');
-            $table->integer('anyo_publicacion');
+        Schema::table('prestamos', function (Blueprint $table) {
+            $table->unsignedBigInteger('libro_id')->nullable();
+            $table->foreign('libro_id')->references('id')->on('libros')->onDelete('set null');
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('libros');
+        //
     }
 };

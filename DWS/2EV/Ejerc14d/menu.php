@@ -55,12 +55,6 @@
         mysqli_stmt_bind_param($stmt, "s", $psw_hash);
         mysqli_stmt_execute($stmt);
     }
-
-    function cerrar_sesion() {
-        session_start();
-        session_destroy();
-        header("Location: index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -95,10 +89,21 @@
             echo '<input type="submit" value="crear" name="dis_crear_btn">';
             echo '<input type="submit" value="mostrar" name="dis_mostrar_btn">';
             echo '<input type="submit" value="modificar" name="dis_modificar_btn"><br><br>';
-            echo '<button onclick="cerrar_sesion()">Cerrar sesión</button>';
+            echo '</form>';
+            echo "<form action='index.php' method='POST'>";
+            echo "<input type='submit' value='Cerrar sesión' name='cerrar_sesion_btn'>";
+            echo "</form>";
         } else if($inicio_sesion == 0) {
             echo "<h1>Bienvenido/a " . $_SESSION["usuario"];
-            echo '<button onclick="cerrar_sesion()">Cerrar sesión</button>';
+            //Artistas
+            echo '<form action="artistas.php" method="POST">';
+            echo '<label><strong>Artistas: </strong></label>';
+            echo '<input type="submit" value="crear" name="art_crear_btn">';
+            echo '<input type="submit" value="mostrar" name="art_mostrar_btn">';
+            echo '</form>';
+            echo "<form action='index.php' method='POST'>";
+            echo "<input type='submit' value='Cerrar sesión' name='cerrar_sesion_btn'>";
+            echo "</form>";
         } else {
             echo "<h1>Usuario o contraseña incorrectos</h1>";
         }
