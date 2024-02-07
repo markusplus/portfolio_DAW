@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script src="https://gmousse.github.io/dataframe-js/dist/dataframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="stylesheet" href="../styles/pages.css">
+</head>
+<body>
+    <div id="menu" class="menu">
+        <a href="#" onclick="cargaIntroduccion()">Introducción</a>
+        <a href="#" onclick="cargaAboutMe()">About me</a>
+        <a href="../index.html">Exit</a>
+    </div>
+    <section id="dashboard">
+        <div id="subir_container" class="container">
+            <h3>Carga un fichero para poder ver el procesado de la página web</h3>
+            <div class="file-upload" id="fileUpload">
+                <p id="file_text">Arrastra o haz click para cargar un archivo</p>
+            </div>
+        </div>
+
+        <div class="container" id="panel_navegacion" style="display: none;">
+            <div id="graficas_panel">
+                <h3>Gráficas</h3>
+                <p>Aquí se desglosan las diferentes gráficas generadas a partir del fichero subido</p>
+                <img class="panel_img" src="../imgs/grafica.png" alt="Gráficas">
+            </div>
+            <div id="tablas_panel">
+                <h3>Tablas</h3>
+                <p>Aquí se desglosan las diferentes gráficas generadas a partir del fichero subido</p>
+                <img class="panel_img" src="../imgs/tabla.png" alt="Tablas">
+            </div>
+            <div id="about_panel">
+                <h3>About me</h3>
+                <p>Sección que habla sobre el autor de la página</p>
+                <img class="panel_img" src="../imgs/perfil.png" alt="About Me">
+            </div>
+            <div id="exit_panel">
+                <h3>Exit</h3>
+                <p>Enlace para cerrar la sesión y volver a la página de inicio de sesión</p>
+                <img class="panel_img" src="../imgs/salida.png" alt="Exit">
+            </div>
+        </div>
+    </section>
+    <section id="about_section">
+        <div class="about_container">
+            <h3>About me</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum eget dolor vel faucibus. Pellentesque ultrices mi in ligula iaculis iaculis. Aliquam mi orci, pretium id sapien vulputate, rutrum ullamcorper tortor. Nullam varius metus a diam hendrerit, sed pretium eros dictum. Suspendisse potenti. Nullam quis augue pulvinar, rutrum mauris sed, ultricies nunc. Phasellus accumsan sed massa vitae consectetur. Aliquam sed sapien eget sapien aliquam pharetra.<br><br>
+                Sed vel nisi arcu. In hac habitasse platea dictumst. Ut finibus posuere nulla at sagittis. Pellentesque in nisi diam. Nulla hendrerit finibus dignissim. Phasellus dolor libero, ultrices sit amet fringilla eget, commodo ac turpis. Quisque commodo tortor enim, sed maximus risus convallis sit amet. Phasellus aliquam nisi non ornare tristique. Praesent tempus nec nunc non pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+            <img class="profile_img" src="../imgs/profile.jpg" alt="Profile picture">
+            <div class="social_container">
+                <a href="https://twitter.com" target="_blank"><img class="social_img" src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais"><p>Twitter (X)</p></a>
+                <a href="https://www.instagram.com/?hl=es" target="_blank"><img class="social_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"><p>Instagram</p></a>
+                <a href="https://github.com/markusplus" target="_blank"><img class="social_img" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"><p>Github</p></a>
+            </div>
+        </div>
+    </section>
+    <section id="graficas">
+        <div class="container">
+            <h3>Gráficas</h3>
+            <p>Introduce el rango de años a filtrar:</p>
+            <input type="range" id="yearSliderGraf" name="yearSliderGraf" min="2009" max="2023" value="2009" onchange="mostrarValorRangoGraf()">
+            <label id="ano_seleccionado" for="yearSlider">Año: <span id="valorRangoGraf">2009</span></label>
+        </div>
+        <div class="container">
+            <div id="grafica1" class="grafica">
+                
+            </div>
+            <div id="grafica2" class="grafica">
+                
+            </div>
+        </div>
+    </section>
+    <section id="tablas">
+        <div class="container">
+            <h3>Tablas</h3>
+            <p>Introduce el rango de años a filtrar:</p>
+            <input type="range" id="yearSliderTab" name="yearSliderTab" min="2009" max="2023" value="2009" onchange="mostrarValorRangoTab()">
+            <label id="ano_seleccionado" for="yearSlider">Año: <span id="valorRangoTab">2009</span></label>
+        </div>
+        <div class="container">
+            <div id="tabla1" class="tabla">
+                
+            </div>
+            <div id="tabla2" class="tabla">
+                
+            </div>
+        </div>
+    </section>
+    <div id="footer" class="footer">
+        <a href="#" onclick="cargaIntroduccion()">Introducción</a>
+        <a href="#" onclick="cargaAboutMe()">About me</a>
+        <a href="../index.html">Exit</a>
+        <a href="https://twitter.com" target="_blank"><img class="footer_img" src="https://img.freepik.com/vector-gratis/nuevo-diseno-icono-x-logotipo-twitter-2023_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais"></a>
+        <a href="https://www.instagram.com/?hl=es" target="_blank"><img class="footer_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"></a>
+        <a href="https://github.com/markusplus" target="_blank"><img class="footer_img" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
+    </div>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

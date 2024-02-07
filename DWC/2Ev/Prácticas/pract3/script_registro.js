@@ -120,7 +120,7 @@ const validar = function(){
             if (filtrados.length > 0){
                 imagenSuccess();
                 mostrarImagen();
-                setTimeout(() => {ocultarImagen();borrarCampos();window.location.href = "src/page_successful.html"; document.activeElement.blur();}, 2000);
+                setTimeout(() => {ocultarImagen();borrarCampos();window.location.href = "pages/dashboard.html"; document.activeElement.blur();}, 2000);
             } else {
                 imagenError();
                 mostrarImagen();
