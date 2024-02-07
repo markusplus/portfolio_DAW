@@ -1,5 +1,0 @@
-set1 = new Set([1,2,3,4,5])
-set2 = new Set([3,4,5,6])
-const intersect = (set1,set2) => [...set1].filter((el)=>set2.has(el))
-const interseccion = intersect(set1, set2)
-console.log(interseccion)
