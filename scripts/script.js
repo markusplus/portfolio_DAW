@@ -251,13 +251,59 @@ function groupedDF(dataframe) {
 }
 
 function getDateFromDF(dataframe) {
-    const dates = dataframe.map((row) => row.fecha);
+    const dates = dataframe.map((row) => {
+        const year = parseInt(row.Year);
+        var month = row.Month;
+        switch (month) {
+            case 'Enero':
+                month = 1;
+                break;
+            case 'Febrero':
+                month = 2;
+                break;
+            case 'Marzo':
+                month = 3;
+                break;
+            case 'Abril':
+                month = 4;
+                break;
+            case 'Mayo':
+                month = 5;
+                break;
+            case 'Junio':
+                month = 6;
+                break;
+            case 'Julio':
+                month = 7;
+                break;
+            case 'Agosto':
+                month = 8;
+                break;
+            case 'Septiembre':
+                month = 9;
+                break;
+            case 'Octubre':
+                month = 10;
+                break;
+            case 'Noviembre':
+                month = 11;
+                break;
+            case 'Diciembre':
+                month = 12;
+                break;
+        }
+        console.log(year);
+        console.log(month);
+        var date = new Date(year, month - 1);
+        //console.log(date);
+        return date;
+    });
     return dates;
 }
 
 function showPlots(dataframe, year) {
     // Filtrar el dataframe por el año especificado
-    const filteredDF = dataframe.filter((row) => new Date(row.fecha).getFullYear() === year);
+    const filteredDF = dataframe.filter((row) => new Date(row.Year).getFullYear() === year);
 
     // Obtener las fechas en formato Date
     const dates = getDateFromDF(filteredDF);
@@ -314,7 +360,7 @@ function showPlots(dataframe, year) {
 function showTables(dataframe, year) {
     const filteredDF = dataframe.filter((row) => {
         const date = new Date(getDateFromDF(row));
-        return date.getFullYear() === year;
+        return date.getFullYear() === parseInt(year);
     });
 
     var roundedDF = roundDigitsDF(filteredDF);
