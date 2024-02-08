@@ -125,28 +125,28 @@ function addEventsOnContainer(){
     });
 
     document.getElementById("graficas_panel").addEventListener("mouseover", () => {
-        document.getElementById("graficas_panel").style.backgroundColor = "#f1f1f1";
+        document.getElementById("graficas_panel").style.backgroundColor = "#6b6a6a";
     });
     document.getElementById("graficas_panel").addEventListener("mouseout", () => {
         document.getElementById("graficas_panel").style.backgroundColor = "";
     });
 
     document.getElementById("tablas_panel").addEventListener("mouseover", () => {
-        document.getElementById("tablas_panel").style.backgroundColor = "#f1f1f1";
+        document.getElementById("tablas_panel").style.backgroundColor = "#6b6a6a";
     });
     document.getElementById("tablas_panel").addEventListener("mouseout", () => {
         document.getElementById("tablas_panel").style.backgroundColor = "";
     });
 
     document.getElementById("about_panel").addEventListener("mouseover", () => {
-        document.getElementById("about_panel").style.backgroundColor = "#f1f1f1";
+        document.getElementById("about_panel").style.backgroundColor = "#6b6a6a";
     });
     document.getElementById("about_panel").addEventListener("mouseout", () => {
         document.getElementById("about_panel").style.backgroundColor = "";
     });
 
     document.getElementById("exit_panel").addEventListener("mouseover", () => {
-        document.getElementById("exit_panel").style.backgroundColor = "#f1f1f1";
+        document.getElementById("exit_panel").style.backgroundColor = "#6b6a6a";
     });
     document.getElementById("exit_panel").addEventListener("mouseout", () => {
         document.getElementById("exit_panel").style.backgroundColor = "";
