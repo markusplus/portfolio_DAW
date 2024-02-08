@@ -120,6 +120,7 @@ const validar = function(){
             if (filtrados.length > 0){
                 imagenSuccess();
                 mostrarImagen();
+                document.getElementById('progreso').style.display = "block";
                 setTimeout(() => {ocultarImagen();borrarCampos();window.location.href = "pages/dashboard.html"; document.activeElement.blur();}, 2000);
             } else {
                 imagenError();
